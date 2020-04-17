@@ -1,0 +1,52 @@
+{
+  "name": "wp-forge/wp-site",
+  "description": "Create a new WordPress site via Composer.",
+  "type": "project",
+  "license": "GPL-3.0-or-later",
+  "authors": [
+    {
+      "name": "Micah Wood",
+      "homepage": "https://wpscholar.com"
+    }
+  ],
+  "support": {
+    "source": "https://github.com/wp-forge/wp-site",
+    "issues": "https://github.com/wp-forge/wp-site/issues"
+  },
+  "repositories": {
+    "wpackagist": {
+      "type": "composer",
+      "url": "https://wpackagist.org"
+    }
+  },
+  "require": {
+    "aaemnnosttv/wp-cli-dotenv-command": "^2.0",
+    "composer/installers": "^1.9",
+    "johnpbloch/wordpress": "@stable",
+    "wp-cli/wp-cli": "@stable",
+    "wpscholar/phpdotenv": "^1.0"
+  },
+  "extra": {
+    "wordpress-install-dir": "wp",
+    "installer-paths": {
+      "content/mu-plugins/{$name}": [
+        "type:wordpress-muplugin"
+      ],
+      "content/plugins/{$name}": [
+        "type:wordpress-plugin"
+      ],
+      "content/themes/{$name}": [
+        "type:wordpress-theme"
+      ]
+    }
+  },
+  "scripts": {
+    "wp": "vendor/bin/wp",
+    "set-salts": "@wp dotenv salts regenerate",
+    "post-create-project-cmd": [
+      "@php -r \"copy('.env.example', '.env');\"",
+      "@php -r \"unlink('.env.example');\"",
+      "@composer run set-salts"
+    ]
+  }
+}
