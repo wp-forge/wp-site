@@ -4,17 +4,19 @@ Easily create a new Composer-based WordPress site.
 
 ## Requirements
 
-- PHP 5.6+
+- [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
 - [Composer](https://getcomposer.org/doc/00-intro.md)
 
 ## Installation
 
 Run this command in the terminal:
 ```
-composer create-project wp-forge/wp-site
+composer --remove-vcs create-project wp-forge/wp-site
 ``` 
 
 Optionally append a directory name to the end of the command to customize the folder name that your project will be installed into.
+
+The installation process will check your environment for the required PHP version and PHP extensions. If this presents a problem and you want to force install anyway, just add the `--ignore-platform-reqs` flag to the command.
 
 ## Usage
 
