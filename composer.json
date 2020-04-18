@@ -20,11 +20,13 @@
     }
   },
   "require": {
-    "aaemnnosttv/wp-cli-dotenv-command": "^2.0",
     "composer/installers": "^1.9",
     "johnpbloch/wordpress": "@stable",
-    "wp-cli/wp-cli": "@stable",
     "wpscholar/phpdotenv": "^1.0"
+  },
+  "require-dev": {
+    "wp-cli/wp-cli": "@stable",
+    "aaemnnosttv/wp-cli-dotenv-command": "@stable"
   },
   "extra": {
     "wordpress-install-dir": "wp",
